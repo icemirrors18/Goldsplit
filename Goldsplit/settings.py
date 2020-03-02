@@ -25,12 +25,13 @@ SECRET_KEY = 'v1io51kych%!q=2fkvpu0%7$tl#9^k3*dr#qnc-ewxgf=)1edu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.0.101', 'localhost', '127.0.0.1', '[::1]']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+	'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,8 +76,12 @@ WSGI_APPLICATION = 'Goldsplit.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Goldsplit',
+		'USER': 'goldsplituser',
+		'PASSWORD': 'pl3asen0more',
+		'HOST': 'localhost',
+		'PORT': '',
     }
 }
 
